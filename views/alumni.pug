@@ -1,0 +1,35 @@
+extends layout
+block content
+  .page-header
+    h1.page-title
+      i.fas.fa-graduation-cap
+      span  Find Alumni
+    p.page-sub Connect with graduates and request mentorship
+
+  .search-section
+    .search-card
+      h3
+        i.fas.fa-search
+        span  Search Alumni
+      .search-filters
+        .filter-group
+          input#search(type="text", placeholder="Search by name...")
+          button.btn-primary(onclick="searchAlumni()")
+            i.fas.fa-search
+            span  Search
+        .filter-group
+          input#searchCompany(type="text", placeholder="Filter by company...")
+          input#searchBatch(type="text", placeholder="Filter by batch year...")
+          button.btn-ghost(onclick="searchAlumni()")
+            i.fas.fa-filter
+            span  Filter
+
+  .alumni-results
+    .results-header
+      span#resultsCount 0 alumni found
+      .sort-options
+        button.sort-btn.active(onclick="searchAlumni()") All
+    .results-grid#results
+      .loading-shimmer
+      .loading-shimmer
+      .loading-shimmer

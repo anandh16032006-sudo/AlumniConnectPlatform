@@ -1,0 +1,48 @@
+extends layout
+block content
+  .page-header
+    h1.page-title
+      i.fas.fa-user-circle
+      span  My Profile
+    p.page-sub Manage your account and public information
+
+  .profile-page
+    .profile-card
+      .profile-avatar-section
+        .profile-avatar
+          i.fas.fa-user-circle
+        .profile-name#profileName Loading...
+        .profile-role-badge#profileRole —
+
+      .profile-form
+        form#profileForm
+          .form-row
+            .form-group
+              label
+                i.fas.fa-user
+                span  Full Name
+              input#profName(type="text", placeholder="Your name", disabled)
+            .form-group
+              label
+                i.fas.fa-envelope
+                span  Email
+              input#profEmail(type="email", placeholder="Your email", disabled)
+          .form-row
+            .form-group
+              label
+                i.fas.fa-building
+                span  Company / Institution
+              input#profCompany(type="text", placeholder="Where do you work/study?")
+            .form-group
+              label
+                i.fas.fa-calendar-graduate
+                span  Batch Year
+              input#profBatch(type="text", placeholder="e.g., 2020")
+          .form-group
+            label
+              i.fas.fa-align-left
+              span  Bio
+            textarea#profBio(placeholder="Tell the community about yourself...", rows="4")
+          button.btn-submit(type="submit")
+            i.fas.fa-save
+            span  Save Profile

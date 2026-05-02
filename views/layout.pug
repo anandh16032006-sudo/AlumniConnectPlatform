@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+  head
+    title AlumniConnect — Your Alumni Network
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="AlumniConnect - Bridging students and alumni for mentorship, careers, and community")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .bg-orbs
+      .orb.orb-1
+      .orb.orb-2
+      .orb.orb-3
+
+    header.site-header
+      a.brand(href="/")
+        .brand-icon
+          i.fas.fa-graduation-cap
+        span.brand-name AlumniConnect
+      nav.main-nav
+        a(href="/") Home
+        a(href="/alumni") Alumni
+        a(href="/jobs") Jobs
+        a(href="/chat") Community Chat
+        a(href="/events") Events
+        a(href="/bookings") Mentorship
+        span.nav-divider
+        span.nav-user-info#navUserInfo
+      .header-actions
+        button.btn-ghost#logoutBtn(onclick="handleLogout()" style="display:none")
+          i.fas.fa-sign-out-alt
+          span Logout
+        a.btn-primary(href="/login" id="loginNavBtn") Login
+      button.mobile-menu-btn#mobileMenuBtn(onclick="toggleMobileMenu()")
+        i.fas.fa-bars
+
+    .mobile-menu#mobileMenu
+      a(href="/") Home
+      a(href="/alumni") Alumni
+      a(href="/jobs") Jobs
+      a(href="/chat") Community Chat
+      a(href="/events") Events
+      a(href="/bookings") Mentorship
+      a(href="/login") Login
+
+    main.main-content
+      block content
+
+    footer.site-footer
+      .footer-inner
+        .footer-brand
+          .brand-icon
+            i.fas.fa-graduation-cap
+          span AlumniConnect
+          p Connecting graduates, empowering futures.
+        .footer-links
+          h4 Platform
+          a(href="/alumni") Find Alumni
+          a(href="/jobs") Job Board
+          a(href="/chat") Community Chat
+          a(href="/events") Events
+        .footer-links
+          h4 Account
+          a(href="/login") Login
+          a(href="/register") Register
+          a(href="/dashboard") Dashboard
+        .footer-links
+          h4 Admin
+          a(href="/admin") Admin Panel
+      .footer-bottom
+        p © 2024 AlumniConnect. Built with ❤️ for alumni communities.
+
+    .toast-container#toastContainer
+
+    script(src="/js/main.js")
+    script.
+      initApp();

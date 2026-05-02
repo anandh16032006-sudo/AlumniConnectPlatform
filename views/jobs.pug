@@ -1,0 +1,62 @@
+extends layout
+block content
+  .page-header
+    h1.page-title
+      i.fas.fa-briefcase
+      span  Job Board
+    p.page-sub Opportunities shared within the alumni network
+
+  .jobs-layout
+    .jobs-sidebar
+      .form-card#postJobSection
+        h3
+          i.fas.fa-plus-circle
+          span  Post a Job
+        p.subtext Share opportunities with students and alumni.
+        form#jobForm
+          .form-group
+            label
+              i.fas.fa-heading
+              span  Job Title
+            input#title(type="text", placeholder="e.g., Software Engineer", required)
+          .form-group
+            label
+              i.fas.fa-building
+              span  Company
+            input#company(type="text", placeholder="e.g., Infosys", required)
+          .form-group
+            label
+              i.fas.fa-map-marker-alt
+              span  Location
+            input#location(type="text", placeholder="e.g., Bangalore / Remote")
+          .form-group
+            label
+              i.fas.fa-tag
+              span  Job Type
+            select#jobType
+              option(value="Full-time") Full-time
+              option(value="Part-time") Part-time
+              option(value="Contract") Contract
+              option(value="Internship") Internship
+              option(value="Remote") Remote
+          .form-group
+            label
+              i.fas.fa-align-left
+              span  Description
+            textarea#desc(placeholder="Describe role, requirements and salary...", required, rows="4")
+          button.btn-submit(type="submit")
+            i.fas.fa-paper-plane
+            span  Post Job
+      
+      .login-prompt-card#jobsLoginPrompt(style="display:none")
+        i.fas.fa-lock
+        p Login to post job listings
+        a.btn-primary(href="/login") Login Now
+
+    .jobs-main
+      .jobs-search
+        input#jobSearch(type="text", placeholder="Search jobs by title or keyword...", oninput="searchJobs()")
+      .jobs-list#jobs
+        .loading-shimmer
+        .loading-shimmer
+        .loading-shimmer

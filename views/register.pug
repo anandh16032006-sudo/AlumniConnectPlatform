@@ -1,0 +1,64 @@
+extends layout
+block content
+  .auth-page
+    .auth-visual
+      .auth-visual-content
+        .auth-logo
+          i.fas.fa-graduation-cap
+        h2 Join AlumniConnect
+        p Create your account and start networking
+        .auth-features
+          .auth-feat
+            i.fas.fa-check-circle
+            span Free to join
+          .auth-feat
+            i.fas.fa-check-circle
+            span Admin verification for security
+          .auth-feat
+            i.fas.fa-check-circle
+            span Connect instantly after approval
+          .auth-feat
+            i.fas.fa-check-circle
+            span Access all platform features
+
+    .auth-form-wrap
+      .auth-card
+        .auth-card-header
+          h2 Create Account
+          p.subtext Join your alumni community today
+        form#registerForm(autocomplete="off")
+          .form-group
+            label(for="name")
+              i.fas.fa-user
+              span  Full Name
+            input#name(type="text", placeholder="Enter your full name", required)
+          .form-group
+            label(for="email")
+              i.fas.fa-envelope
+              span  Email Address
+            input#email(type="email", placeholder="Enter your email", required)
+          .form-group
+            label(for="password")
+              i.fas.fa-lock
+              span  Password
+            .input-with-icon
+              input#password(type="password", placeholder="Create a strong password", required)
+              button.toggle-pw(type="button", onclick="togglePassword('password', this)")
+                i.fas.fa-eye
+          .form-group
+            label(for="role")
+              i.fas.fa-id-badge
+              span  Your Role
+            select#role(required)
+              option(value="" disabled selected) Choose your role
+              option(value="student") 🎓 Student
+              option(value="alumni") 🏆 Alumni
+          .approval-note
+            i.fas.fa-clock
+            span Your account will be reviewed by admin before activation.
+          button.btn-submit(type="submit")
+            i.fas.fa-user-plus
+            span  Create Account
+          p.auth-switch
+            | Already have an account? &nbsp;
+            a(href="/login") Login here

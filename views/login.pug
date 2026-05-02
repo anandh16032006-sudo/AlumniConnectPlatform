@@ -1,0 +1,51 @@
+extends layout
+block content
+  .auth-page
+    .auth-visual
+      .auth-visual-content
+        .auth-logo
+          i.fas.fa-graduation-cap
+        h2 Welcome Back!
+        p Sign in to your alumni network account
+        .auth-features
+          .auth-feat
+            i.fas.fa-check-circle
+            span Access mentorship sessions
+          .auth-feat
+            i.fas.fa-check-circle
+            span Connect with alumni network
+          .auth-feat
+            i.fas.fa-check-circle
+            span Discover job opportunities
+          .auth-feat
+            i.fas.fa-check-circle
+            span Join community discussions
+
+    .auth-form-wrap
+      .auth-card
+        .auth-card-header
+          h2 Login
+          p.subtext Access your alumni network
+        form#loginForm(autocomplete="off")
+          .form-group
+            label(for="email")
+              i.fas.fa-envelope
+              span  Email Address
+            input#email(type="email", placeholder="Enter your email", required, autocomplete="email")
+          .form-group
+            label(for="password")
+              i.fas.fa-lock
+              span  Password
+            .input-with-icon
+              input#password(type="password", placeholder="Enter your password", required, autocomplete="current-password")
+              button.toggle-pw(type="button", onclick="togglePassword('password', this)")
+                i.fas.fa-eye
+          .admin-hint
+            i.fas.fa-info-circle
+            span Admin: admin@gmail.com / admin123
+          button.btn-submit(type="submit")
+            i.fas.fa-sign-in-alt
+            span  Login to Account
+          p.auth-switch
+            | Don't have an account? &nbsp;
+            a(href="/register") Register here

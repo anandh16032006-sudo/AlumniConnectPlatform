@@ -1,0 +1,148 @@
+extends layout
+block content
+  .admin-gate#adminGate
+    .auth-card.centered
+      .gate-icon
+        i.fas.fa-shield-alt
+      h2 Admin Access Required
+      p.subtext This panel is restricted to administrators only.
+      p.subtext Please login with admin credentials to continue.
+      a.btn-submit(href="/login")
+        i.fas.fa-sign-in-alt
+        span  Login as Admin
+
+  .admin-panel#adminPanel(style="display:none")
+    .admin-header
+      .admin-header-left
+        h1
+          i.fas.fa-shield-alt
+          span  Admin Panel
+        p.subtext Full platform management and moderation
+      .admin-header-right
+        .admin-tag
+          i.fas.fa-crown
+          span  Administrator
+        button.btn-ghost(onclick="handleLogout()")
+          i.fas.fa-sign-out-alt
+          span  Logout
+
+    .admin-tabs
+      button.admin-tab.active(onclick="showTab('overview')")
+        i.fas.fa-chart-pie
+        span  Overview
+      button.admin-tab(onclick="showTab('pending')")
+        i.fas.fa-user-clock
+        span  Pending
+        span.tab-badge#pendingBadge 0
+      button.admin-tab(onclick="showTab('users')")
+        i.fas.fa-users
+        span  All Users
+      button.admin-tab(onclick="showTab('adduser')")
+        i.fas.fa-user-plus
+        span  Add User
+      button.admin-tab(onclick="showTab('chat')")
+        i.fas.fa-comments
+        span  Chat Moderation
+      button.admin-tab(onclick="showTab('jobs')")
+        i.fas.fa-briefcase
+        span  Jobs
+
+    .admin-content
+
+      // OVERVIEW TAB
+      #tab-overview.admin-tab-content.active
+        h2.tab-title Platform Overview
+        .insights-grid#adminInsights
+          .insight-card.loading
+            i.fas.fa-spinner.fa-spin
+        .overview-charts
+          .chart-card
+            h3
+              i.fas.fa-history
+              span  Recent Registrations
+            .chart-placeholder#recentUsers
+              .loading-shimmer
+
+      // PENDING TAB
+      #tab-pending.admin-tab-content
+        h2.tab-title Pending Approvals
+        p.tab-desc Review and approve new user registrations.
+        .user-list#pendingUsers
+          .loading-shimmer
+
+      // ALL USERS TAB
+      #tab-users.admin-tab-content
+        .tab-header-row
+          h2.tab-title All Users
+          .search-row
+            input#userSearch(type="text", placeholder="Search users...", oninput="filterUsers()")
+            select#roleFilter(onchange="filterUsers()")
+              option(value="") All Roles
+              option(value="student") Students
+              option(value="alumni") Alumni
+              option(value="admin") Admins
+        .user-list#allUsers
+          .loading-shimmer
+
+      // ADD USER TAB
+      #tab-adduser.admin-tab-content
+        h2.tab-title Add New User
+        p.tab-desc Create user accounts directly from the admin panel.
+        .form-card
+          form#addUserForm
+            .form-row
+              .form-group
+                label
+                  i.fas.fa-user
+                  span  Full Name
+                input#adminUserName(type="text", required, placeholder="Full name")
+              .form-group
+                label
+                  i.fas.fa-envelope
+                  span  Email
+                input#adminUserEmail(type="email", required, placeholder="Email address")
+            .form-row
+              .form-group
+                label
+                  i.fas.fa-lock
+                  span  Password
+                input#adminUserPassword(type="password", required, placeholder="Temporary password")
+              .form-group
+                label
+                  i.fas.fa-id-badge
+                  span  Role
+                select#adminUserRole(required)
+                  option(value="student") Student
+                  option(value="alumni") Alumni
+                  option(value="admin") Admin
+            .form-group
+              label
+                i.fas.fa-toggle-on
+                span  Account Status
+              select#adminUserStatus
+                option(value="approved") Approved (Active)
+                option(value="pending") Pending (Needs Approval)
+            button.btn-submit(type="submit")
+              i.fas.fa-user-plus
+              span  Add User
+
+      // CHAT MODERATION TAB
+      #tab-chat.admin-tab-content
+        .tab-header-row
+          h2.tab-title Chat Moderation
+          button.btn-danger(onclick="loadAdminChats()")
+            i.fas.fa-sync-alt
+            span  Refresh
+        p.tab-desc Delete inappropriate or spam messages from the community chat.
+        .chat-mod-list#adminChatList
+          .loading-shimmer
+
+      // JOBS TAB
+      #tab-jobs.admin-tab-content
+        .tab-header-row
+          h2.tab-title Job Listings
+          button.btn-ghost(onclick="loadAdminJobs()")
+            i.fas.fa-sync-alt
+            span  Refresh
+        .job-list#adminJobList
+          .loading-shimmer

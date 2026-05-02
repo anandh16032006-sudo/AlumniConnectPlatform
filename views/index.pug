@@ -1,0 +1,89 @@
+extends layout
+block content
+  .hero-section
+    .hero-content
+      .hero-badge
+        i.fas.fa-star
+        span  Trusted by 10,000+ Alumni
+      h1.hero-title
+        | Connect, Grow,
+        span.hero-highlight  Succeed
+      p.hero-subtitle Bridging students and alumni for mentorship, career opportunities, and meaningful connections that last a lifetime.
+      .hero-cta
+        a.btn-hero(href="/register")
+          i.fas.fa-rocket
+          span  Get Started Free
+        a.btn-hero.ghost(href="/login")
+          i.fas.fa-sign-in-alt
+          span  Sign In
+
+    .hero-stats
+      .stat-card
+        .stat-icon
+          i.fas.fa-users
+        .stat-number#statAlumni 0+
+        .stat-label Alumni
+      .stat-card
+        .stat-icon
+          i.fas.fa-handshake
+        .stat-number#statMentors 0+
+        .stat-label Mentors
+      .stat-card
+        .stat-icon
+          i.fas.fa-briefcase
+        .stat-number#statJobs 0+
+        .stat-label Jobs Posted
+
+  .features-section
+    h2.section-title Why AlumniConnect?
+    p.section-sub Everything you need to build your professional network.
+    .features-grid
+      .feature-card
+        .feature-icon
+          i.fas.fa-search
+        h3 Find Alumni
+        p Search and connect with alumni by name, company, or graduation year.
+      .feature-card
+        .feature-icon
+          i.fas.fa-comments
+        h3 Community Chat
+        p Share ideas, ask questions, and collaborate in real-time. Upload files, images, and documents.
+      .feature-card
+        .feature-icon
+          i.fas.fa-briefcase
+        h3 Job Board
+        p Post and discover opportunities shared exclusively within your alumni network.
+      .feature-card
+        .feature-icon
+          i.fas.fa-chalkboard-teacher
+        h3 Mentorship
+        p Book sessions with experienced alumni mentors who guide your career journey.
+      .feature-card
+        .feature-icon
+          i.fas.fa-calendar-alt
+        h3 Events
+        p Stay informed about alumni reunions, webinars, and networking events.
+      .feature-card
+        .feature-icon
+          i.fas.fa-shield-alt
+        h3 Verified Network
+        p Admin-verified accounts ensure you connect with authentic alumni.
+
+  .alumni-spotlight
+    h2.section-title Featured Alumni
+    p.section-sub Meet some of our amazing community members.
+    .alumni-grid#featuredAlumni
+      .loading-shimmer
+      .loading-shimmer
+      .loading-shimmer
+
+  .cta-banner
+    h2 Ready to join your alumni community?
+    p Register today and start your journey with thousands of graduates.
+    .cta-actions
+      a.btn-hero(href="/register")
+        i.fas.fa-user-plus
+        span  Join Now
+      a.btn-hero.ghost(href="/chat")
+        i.fas.fa-comments
+        span  Explore Chat

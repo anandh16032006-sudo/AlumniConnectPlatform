@@ -1,0 +1,57 @@
+extends layout
+block content
+  .chat-page
+    .chat-sidebar
+      .chat-sidebar-header
+        h3
+          i.fas.fa-comments
+          span  Community Chat
+        .chat-badge#onlineCount 0 members
+      .chat-user-card#chatUserCard
+        .chat-user-avatar
+          i.fas.fa-user-circle
+        .chat-user-info
+          span.chat-user-name#chatUserName Please login
+          span.chat-user-role#chatUserRole —
+      .chat-sidebar-info
+        p
+          i.fas.fa-info-circle
+          span  This chat is shared between all students, alumni, and admins.
+      .chat-sidebar-rules
+        h4 Community Rules
+        ul
+          li Be respectful and kind
+          li No spam or promotions
+          li Share relevant content only
+          li Admin may moderate content
+
+    .chat-main
+      .chat-header
+        h2
+          i.fas.fa-globe
+          span  Public Community Chat
+        .chat-header-actions
+          button.btn-icon(onclick="loadChats()" title="Refresh")
+            i.fas.fa-sync-alt
+          span.chat-count#msgCount 0 messages
+
+      .chat-messages#chatList
+        .chat-loading
+          i.fas.fa-spinner.fa-spin
+          span  Loading messages...
+
+      .chat-input-area
+        form#chatForm(enctype="multipart/form-data")
+          .file-preview-area#filePreview(style="display:none")
+            .file-preview-inner#filePreviewInner
+            button.remove-file(type="button", onclick="removeFile()")
+              i.fas.fa-times
+          .chat-input-row
+            .chat-input-wrap
+              textarea#chatMessage(placeholder="Write a message... (Enter to send, Shift+Enter for newline)", rows="1")
+              .chat-input-actions
+                label.btn-icon.attach-btn(for="chatAttachment" title="Attach file")
+                  i.fas.fa-paperclip
+                  input#chatAttachment(type="file", accept=".jpg,.jpeg,.png,.webp,.gif,.pdf,.doc,.docx,.txt,.zip,.mp4", style="display:none", onchange="previewFile(this)")
+            button.btn-send(type="submit")
+              i.fas.fa-paper-plane

@@ -1,0 +1,55 @@
+extends layout
+block content
+  .page-header
+    h1.page-title
+      i.fas.fa-calendar-alt
+      span  Alumni Events
+    p.page-sub Stay updated with reunions, webinars, and networking events
+
+  .events-layout
+    .events-sidebar
+      .form-card#createEventSection(style="display:none")
+        h3
+          i.fas.fa-plus-circle
+          span  Create Event
+        form#eventForm
+          .form-group
+            label
+              i.fas.fa-heading
+              span  Event Title
+            input#evTitle(type="text", placeholder="Event name", required)
+          .form-group
+            label
+              i.fas.fa-align-left
+              span  Description
+            textarea#evDesc(placeholder="What is this event about?", rows="3")
+          .form-group
+            label
+              i.fas.fa-calendar
+              span  Date & Time
+            input#evDate(type="datetime-local", required)
+          .form-group
+            label
+              i.fas.fa-map-marker-alt
+              span  Location
+            input#evLocation(type="text", placeholder="Online / Venue address")
+          button.btn-submit(type="submit")
+            i.fas.fa-calendar-plus
+            span  Create Event
+      
+      .events-legend
+        h4 Event Types
+        .legend-item
+          span.legend-dot.upcoming
+          span Upcoming
+        .legend-item
+          span.legend-dot.today
+          span Today
+        .legend-item
+          span.legend-dot.past
+          span Past
+
+    .events-main
+      .events-list#eventsList
+        .loading-shimmer
+        .loading-shimmer

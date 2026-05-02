@@ -1,0 +1,79 @@
+extends layout
+block content
+  .page-header
+    .page-header-content
+      h1.page-title
+        i.fas.fa-tachometer-alt
+        span  Dashboard
+      p.page-sub Your personal hub for everything AlumniConnect
+  
+  .dashboard-grid
+    .dash-welcome-card#dashWelcome
+      .welcome-avatar#welcomeAvatar
+        i.fas.fa-user-circle
+      .welcome-text
+        h2#welcomeName Hello, User!
+        p#welcomeRole Student · AlumniConnect Member
+      .welcome-quick-actions
+        a.btn-sm(href="/chat")
+          i.fas.fa-comments
+          span  Chat
+        a.btn-sm(href="/alumni")
+          i.fas.fa-search
+          span  Find Alumni
+        a.btn-sm(href="/jobs")
+          i.fas.fa-briefcase
+          span  Jobs
+        a.btn-sm(href="/events")
+          i.fas.fa-calendar
+          span  Events
+
+    .dash-stats#dashStats
+      .stat-mini
+        i.fas.fa-graduation-cap
+        .stat-mini-info
+          span.stat-mini-num#statAlumni —
+          span Alumni
+      .stat-mini
+        i.fas.fa-briefcase
+        .stat-mini-info
+          span.stat-mini-num#statJobs —
+          span Jobs
+      .stat-mini
+        i.fas.fa-comments
+        .stat-mini-info
+          span.stat-mini-num#statMsgs —
+          span Messages
+      .stat-mini
+        i.fas.fa-handshake
+        .stat-mini-info
+          span.stat-mini-num#statMentors —
+          span Mentorships
+
+  .dashboard-sections
+    .dash-section
+      .dash-section-header
+        h3
+          i.fas.fa-fire
+          span  Recent Chat
+        a.btn-xs(href="/chat") View All →
+      .dash-chat-preview#dashChat
+        .loading-shimmer
+
+    .dash-section
+      .dash-section-header
+        h3
+          i.fas.fa-briefcase
+          span  Latest Jobs
+        a.btn-xs(href="/jobs") View All →
+      .dash-jobs-preview#dashJobs
+        .loading-shimmer
+
+    .dash-section
+      .dash-section-header
+        h3
+          i.fas.fa-calendar
+          span  Upcoming Events
+        a.btn-xs(href="/events") View All →
+      .dash-events-preview#dashEvents
+        .loading-shimmer
