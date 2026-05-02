@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -43,8 +44,9 @@ app.use((req, res) => {
   res.status(404).render("404");
 });
 
+// REMOVE this:
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () =>
-  console.log(`✅ AlumniConnect running at: http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`✅ AlumniConnect running at: http://localhost:${PORT}`));
+
+// KEEP this:
 module.exports = app;
